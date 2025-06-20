@@ -28,6 +28,7 @@ public class baseconvert
 				
 			}
 			System.out.println(x);
+			System.out.println(x);
 			
 		}
 		
