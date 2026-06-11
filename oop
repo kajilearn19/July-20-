@@ -1,0 +1,350 @@
+class Employee {
+    private int empId;
+    private String name;
+    private double salary;
+
+    public void setEmpId(int empId) {
+        this.empId = empId;
+    }
+
+    public int getEmpId() {
+        return empId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+}
+
+public class TestEmployee {
+    public static void main(String[] args) {
+
+        Employee e1 = new Employee();
+        e1.setEmpId(101);
+        e1.setName("John");
+        e1.setSalary(50000);
+
+        Employee e2 = new Employee();
+        e2.setEmpId(102);
+        e2.setName("Alice");
+        e2.setSalary(60000);
+
+        System.out.println("Employee 1");
+        System.out.println(e1.getEmpId() + " " +
+                           e1.getName() + " " +
+                           e1.getSalary());
+
+        System.out.println("Employee 2");
+        System.out.println(e2.getEmpId() + " " +
+                           e2.getName() + " " +
+                           e2.getSalary());
+    }
+}
+
+----------------------------------------------------
+
+class Rectangle {
+
+    int length;
+    int width;
+
+    public Rectangle() {
+        length = 6;
+        width = 4;
+    }
+
+    public int area() {
+        return length * width;
+    }
+
+    public int perimeter() {
+        return 2 * (length + width);
+    }
+}
+
+public class TestRectangle {
+    public static void main(String[] args) {
+
+        Rectangle r = new Rectangle();
+
+        System.out.println("Area = " + r.area());
+        System.out.println("Perimeter = " + r.perimeter());
+    }
+}
+
+---------------------------------------------------
+
+class Book {
+
+    private String title;
+    private String author;
+    private int chapters;
+
+    public Book() {
+        title = "Unknown";
+        author = "Unknown";
+        chapters = 0;
+    }
+
+    public Book(String title, String author, int chapters) {
+        this.title = title;
+        this.author = author;
+        this.chapters = chapters;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setChapters(int chapters) {
+        this.chapters = chapters;
+    }
+
+    public int getChapters() {
+        return chapters;
+    }
+
+    public void calculatePages() {
+        int pages = chapters * 20;
+        System.out.println("Pages = " + pages);
+    }
+
+    public void displayInfo() {
+        System.out.println("Title : " + title);
+        System.out.println("Author : " + author);
+        System.out.println("Chapters : " + chapters);
+    }
+}
+
+--------------------------------------------------
+public class TestBook {
+    public static void main(String[] args) {
+
+        Book b1 = new Book();
+
+        b1.setTitle("Java Programming");
+        b1.setAuthor("James");
+        b1.setChapters(15);
+
+        b1.displayInfo();
+        b1.calculatePages();
+
+        System.out.println();
+
+        Book b2 = new Book(
+                "Data Structures",
+                "Mark",
+                10);
+
+        b2.displayInfo();
+        b2.calculatePages();
+    }
+}
+--------------------------------------------
+
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Score: ");
+        int score = sc.nextInt();
+
+        if(score >= 90 && score <= 100)
+            System.out.println("Grade A");
+        else if(score >= 80)
+            System.out.println("Grade B");
+        else if(score >= 70)
+            System.out.println("Grade C");
+        else if(score >= 60)
+            System.out.println("Grade D");
+        else
+            System.out.println("Grade F");
+
+        sc.close();
+    }
+}
+
+---------------------------------------------------
+
+import java.util.Scanner;
+
+public class Calculator {
+
+    public static double performOperation(
+            char op,
+            double a,
+            double b) {
+
+        switch(op) {
+            case '+':
+                return a + b;
+
+            case '-':
+                return a - b;
+
+            case '*':
+                return a * b;
+
+            case '/':
+                return a / b;
+
+            default:
+                System.out.println("Invalid Operator");
+                return 0;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Operator: ");
+        char op = sc.next().charAt(0);
+
+        System.out.print("Enter First Number: ");
+        double n1 = sc.nextDouble();
+
+        System.out.print("Enter Second Number: ");
+        double n2 = sc.nextDouble();
+
+        double result =
+                performOperation(op, n1, n2);
+
+        System.out.println("Result = " + result);
+
+        sc.close();
+    }
+}
+
+------------------------------------------------
+
+class Student {
+
+    String name;
+    int age;
+
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+public class StudentArray {
+
+    public static void displayStudents(
+            Student[] students) {
+
+        for(Student s : students) {
+            System.out.println(
+                    "Name: " + s.name +
+                    ", Age: " + s.age);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Student[] students = {
+            new Student("John", 20),
+            new Student("Alice", 21),
+            new Student("David", 22)
+        };
+
+        displayStudents(students);
+    }
+}
+
+--------------------------------------------------
+
+class Book {
+
+    String title;
+    String author;
+    int year;
+
+    Book(String title,
+         String author,
+         int year) {
+
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
+}
+
+public class Library {
+
+    static Book[] books = new Book[5];
+    static int count = 0;
+
+    public static void addBook(
+            String title,
+            String author,
+            int year) {
+
+        books[count++] =
+            new Book(title, author, year);
+    }
+
+    public static void displayBooks() {
+
+        for(int i = 0; i < count; i++) {
+
+            System.out.println(
+                    "Title: " + books[i].title);
+
+            System.out.println(
+                    "Author: " + books[i].author);
+
+            System.out.println(
+                    "Year: " + books[i].year);
+
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+
+        addBook("Java Programming",
+                "James Gosling",
+                2020);
+
+        addBook("Data Structures",
+                "Mark Allen",
+                2021);
+
+        addBook("Algorithms",
+                "Thomas",
+                2022);
+
+        displayBooks();
+    }
+}
+
+-------------------------------------------------------------
